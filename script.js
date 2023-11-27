@@ -1,6 +1,7 @@
 
 'use strict';
 
+// Array che contiene le info dei giochi
 const pics = [
     {
         image: 'img/01.webp',
@@ -32,6 +33,8 @@ const pics = [
 const { createApp } = Vue
 
 createApp({
+
+    //Dati che contengono gli array di immagini e info in aggiunta all'inizio dell'indice impostato su 0
     data() {
         return {
             pics: pics,
@@ -39,6 +42,8 @@ createApp({
         };
     },
     methods: {
+
+        //Funzioni per gestire gli eventi di click sui pulsanti
         next() {
             console.log('click next');
             this.currentIndex++;
@@ -55,9 +60,13 @@ createApp({
                 this.currentIndex = this.pics.length - 1;
             }
         },
+
+        //Funzione per cambiare l'immagine al click
         changeImage(pic) {
             this.currentIndex = this.pics.indexOf(pic);
         },   
+
+        //Funzoine per l'autoplay
         autoplayOn() {
             this.autoplayInterval = setInterval(() => {
                 this.next();
@@ -67,6 +76,8 @@ createApp({
         autoplayOff() {
             clearInterval(this.autoplayInterval);
         },
+
+        //Funzione che avvia l'autoplay all'inizio del ciclo vitale del programma
         created() {
             this.autoplayOn();
         },

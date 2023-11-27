@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slider</title>
+    <title>Slider Vue</title>
     <!--BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
@@ -20,25 +20,40 @@
 
     <div id="app" class="container">
         <div id="carousel">
+
+            <!-- Galleria delle immagini con funzione di hover per l'autoplay -->
             <div class="gallery" @mouseover="autoplayOff" @mouseleave="autoplayOn">
+
+                <!-- Immagine principale con titolo e descrizione in sovraimpressione -->
                 <figure v-for="(pic, index) in pics" :key="index" :class="{ active: index === currentIndex }">
                     <img :src="pic.image" :alt="'games_' + index">
                     <figcaption>
+
+                        <!-- info e titolo inserite con vue tramite baffetti -->
                         <h2>{{ pic.title }}</h2>
                         <h3>{{ pic.text }}</h3>
                     </figcaption>
                 </figure>
             </div>
+
+            <!-- Thumbnail -->
             <div class="thumbnails-container">
+
+                <!-- Pulsante Precedente -->
                 <i id="prev" class="my-btn fa-solid fa-circle-arrow-up" @click="prev()"></i>
+
+                <!-- Immagini per le thumbnails -->
                 <div id="thumbnails">
                     <img v-for="(pic, index) in pics" :key="index" :src="pic.image" :alt="'games_' + (index + 1)" @click="changeImage(pic)">
                 </div>
+
+                <!-- Pulsante successivo -->
                 <i id="next" class="my-btn fa-solid fa-circle-arrow-down" @click="next()"></i>
             </div>
         </div>
     </div>
 
+    <!-- Vue Js -->
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="script.js"></script>
 </body>
