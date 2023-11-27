@@ -32,7 +32,7 @@
             <div class="thumbnails-container">
                 <i id="prev" class="my-btn fa-solid fa-circle-arrow-up" @click="prev()"></i>
                 <div id="thumbnails">
-                    <img v-for="(pic, index) in pics" :key="index" :src="pic.image" :alt="'games' + index">
+                    <img v-for="(pic, index) in pics" :key="index" :src="pic.image" :alt="'games_' + (index + 1)" @click="changeImage(pic)">
                 </div>
                 <i id="next" class="my-btn fa-solid fa-circle-arrow-down" @click="next()"></i>
             </div>

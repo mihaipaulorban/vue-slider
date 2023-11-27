@@ -54,6 +54,9 @@ createApp({
             if(this.currentIndex < 0){
                 this.currentIndex = this.pics.length - 1;
             }
-        }
+        },
+        changeImage(pic) {
+            this.currentIndex = this.pics.indexOf(pic);
+        }        
     }
 }).mount('#app');
