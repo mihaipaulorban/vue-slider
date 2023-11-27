@@ -20,7 +20,7 @@
 
     <div id="app" class="container">
         <div id="carousel">
-            <div class="gallery">
+            <div class="gallery" @mouseover="autoplayOff" @mouseleave="autoplayOn">
                 <figure v-for="(pic, index) in pics" :key="index" :class="{ active: index === currentIndex }">
                     <img :src="pic.image" :alt="'games_' + index">
                     <figcaption>
@@ -38,8 +38,6 @@
             </div>
         </div>
     </div>
-
-    <button id="autoplay" class="btn bg-light">Autoplay</button>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="script.js"></script>
